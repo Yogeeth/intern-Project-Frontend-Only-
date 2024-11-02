@@ -13,10 +13,10 @@ import ViewFroms from './components/client/ViewForms';
 export default function App() {
   const [code, setCode] = useState("");  // State to store the code
   const [form,setForms] = useState("");
-  // Function to handle the data coming from ContactForm
+  
   console.log("form=",form)
   const handleData = (data) => {
-    setCode(data);  // Update the code state with the received value
+    setCode(data); 
     console.log('Received code:', data);
   };
 
