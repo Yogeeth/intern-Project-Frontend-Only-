@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 export default function EnterCode({ handle }) {
-    const [data, setData] = useState("");  // State to store input data
+    const [data, setData] = useState("");  
     const navigate = useNavigate();
-    // Function to handle form submission
+ 
     const handleSubmit = () => {
-        handle(data);  // Pass the data to the parent or process it
+        handle(data);  
         navigate(`/form/${data}`);
     };
 
