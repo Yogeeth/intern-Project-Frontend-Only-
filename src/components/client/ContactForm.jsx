@@ -15,7 +15,7 @@ export default function ContactForm({handleForm}) {
         handleForm(response.data.data.domain.split('.')[0])
         console.log(response.data.data.domain.split('.'))
         setImageUrl(response.data.data.logo);
-        console.log("images=",(typeof(imageUrl)&&"anala"))
+        console.log("images=",(typeof(imageUrl)))
       } catch (error) {
         console.error("Error fetching data:", error);
       }
