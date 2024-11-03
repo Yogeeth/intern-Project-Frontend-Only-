@@ -18,6 +18,10 @@ export default {
         },
         profileBorder: '#FFD700', 
       },
+
+      backgroundImage: {
+        'formify-dark': "url('./src/assets/background.jpeg')",
+      }
     },
   },
   plugins: [],

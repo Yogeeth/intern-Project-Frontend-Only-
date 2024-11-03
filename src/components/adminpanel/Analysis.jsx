@@ -10,7 +10,7 @@ export default function Analysis({handle}) {
   
   const fetchYear = async (year) => {
     try {
-      const response = await axios.get("http://localhost:3000/clientapi/clients-per-month");
+      const response = await axios.get("https://intern-project-backend-only.vercel.app/clientapi/clients-per-month");
       
       //console.log("response=",response1.data)
       let array = {}

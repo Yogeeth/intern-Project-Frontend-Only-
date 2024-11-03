@@ -9,7 +9,7 @@ const DashBoard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/clientapi/client");
+        const response = await axios.get("https://intern-project-backend-only.vercel.app/clientapi/client");
         //console.log("data=",response.data.data);
         setClients(response.data.data);
       } catch (error) {
@@ -42,7 +42,7 @@ const DashBoard = () => {
   const addClient = async (client, e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:3000/clientapi/client", client);
+      const res = await axios.post("https://intern-project-backend-only.vercel.app/clientapi/client", client);
       window.location.reload();
       
       
@@ -60,8 +60,9 @@ const DashBoard = () => {
     console.log(result._id)
 
     try {
-      const response = await axios.delete(`http://localhost:3000/clientapi/delete/${result._id}`);
-      console.log('Document deleted successfully:', response.data);
+      const response = await axios.delete(`https://intern-project-backend-only.vercel.app/delete/${result._id}`);
+      const response1 = await axios.delete(`https://intern-project-backend-only.vercel.app/delete/${domain}`);
+      console.log('Document deleted successfully:', response.data,domain);
       window.location.reload();
       return response.data;
     } catch (error) {

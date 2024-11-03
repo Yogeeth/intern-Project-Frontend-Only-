@@ -11,11 +11,11 @@ export default function ContactForm({handleForm}) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/clientapi/client/${id}`);
+        const response = await axios.get(`https://intern-project-backend-only.vercel.app/clientapi/client/${id}`);
         handleForm(response.data.data.domain.split('.')[0])
         console.log(response.data.data.domain.split('.'))
         setImageUrl(response.data.data.logo);
-        console.log("images=",(typeof(imageUrl)&&"anala"))
+        console.log("images=",(typeof(imageUrl)))
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -36,7 +36,7 @@ export default function ContactForm({handleForm}) {
   const handleSubmit = async(e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3000/formapi/form', formData, {
+      const response = await axios.post('https://intern-project-backend-only.vercel.app/formapi/form', formData, {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -100,7 +100,7 @@ export default function ContactForm({handleForm}) {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Your Name"
-                className="w-full px-4 py-3 bg-inputBg border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 transition duration-300"
+                className="w-full px-4 py-3 text-textPrimary bg-inputBg border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 transition duration-300"
                 whileFocus={{ boxShadow: '0 0 10px rgba(59, 130, 246, 0.6)' }}
               />
             </div>
@@ -114,7 +114,7 @@ export default function ContactForm({handleForm}) {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Your Email"
-                className="w-full px-4 py-3 bg-inputBg border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 transition duration-300"
+                className="w-full text-textPrimary px-4 py-3 bg-inputBg border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 transition duration-300"
                 whileFocus={{ boxShadow: '0 0 10px rgba(59, 130, 246, 0.6)' }}
               />
             </div>
@@ -128,7 +128,7 @@ export default function ContactForm({handleForm}) {
                 value={formData.subject}
                 onChange={handleChange}
                 placeholder="Subject"
-                className="w-full px-4 py-3 bg-inputBg border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 transition duration-300"
+                className="w-full text-textPrimary px-4 py-3 bg-inputBg border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 transition duration-300"
                 whileFocus={{ boxShadow: '0 0 10px rgba(59, 130, 246, 0.6)' }}
               />
             </div>
@@ -142,7 +142,7 @@ export default function ContactForm({handleForm}) {
                 onChange={handleChange}
                 placeholder="Your message..."
                 rows="4"
-                className="w-full px-4 py-3 bg-inputBg border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 transition duration-300"
+                className="w-full text-textPrimary px-4 py-3 bg-inputBg border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 transition duration-300"
                 whileFocus={{ boxShadow: '0 0 10px rgba(59, 130, 246, 0.6)' }}
               />
             </div>

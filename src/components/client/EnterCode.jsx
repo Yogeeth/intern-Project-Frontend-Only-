@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 export default function EnterCode({ handle }) {
-    const [data, setData] = useState("");  // State to store input data
+    const [data, setData] = useState("");  
     const navigate = useNavigate();
-    // Function to handle form submission
     const handleSubmit = () => {
-        handle(data);  // Pass the data to the parent or process it
+        handle(data); 
         navigate(`/form/${data}`);
     };
 
@@ -24,11 +23,11 @@ export default function EnterCode({ handle }) {
                         placeholder='12ASDYGK' 
                         className='border border-blue-600 p-2 rounded-xl'
                         value={data}
-                        onChange={(e) => setData(e.target.value)}  // Update state on input change
+                        onChange={(e) => setData(e.target.value)}  
                     />
                     <button 
                         className='p-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors'
-                        onClick={handleSubmit}  // Handle button click
+                        onClick={handleSubmit}  
                     >
                         ENTER
                     </button>

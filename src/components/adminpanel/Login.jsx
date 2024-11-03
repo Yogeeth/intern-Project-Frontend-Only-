@@ -10,7 +10,11 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3000/login', { username, password });
+      const response = await axios.post(
+        'https://intern-project-backend-only.vercel.app/login',
+        { username, password },
+        { withCredentials: true } // Enable credentials for CORS
+      );
 
       if (response.data.token) {
         localStorage.setItem('authToken', response.data.token); // Save token
@@ -20,7 +24,16 @@ const Login = () => {
       }
     } catch (error) {
       console.error('Error during login:', error);
-      alert('An error occurred. Please try again.');
+      if (error.response) {
+        // The request was made and the server responded with a status code
+        alert(`Error: ${error.response.data.message || 'An error occurred. Please try again.'}`);
+      } else if (error.request) {
+        // The request was made but no response was received
+        alert('No response received from the server. Please try again later.');
+      } else {
+        // Something happened in setting up the request
+        alert('Request setup error. Please try again.');
+      }
     }
   };
 

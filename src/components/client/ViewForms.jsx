@@ -12,8 +12,8 @@ const ViewForms = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/formapi/form/${id}`);
-                const response1 = await axios.get(`http://localhost:3000/clientapi/client/${id}`);
+                const response = await axios.get(`https://intern-project-backend-only.vercel.app/formapi/form/${id}`);
+                const response1 = await axios.get(`https://intern-project-backend-only.vercel.app/clientapi/client/${id}`);
                 console.log(response1.data.data.domain.split('.')[0])
                 setForms(response.data.forms);
                 setDomain(response1.data.data.domain.split('.')[0])
